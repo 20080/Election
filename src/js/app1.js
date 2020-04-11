@@ -81,15 +81,15 @@ App = {
     // Load contract data
     App.contracts.Election.deployed().then(function(instance) {
       electionInstance = instance;
-      return electionInstance.candidatesCount();
-    }).then(function(candidatesCount) {
+      return electionInstance.candidateCount();
+    }).then(function(candidateCount) {
       var candidatesResults = $("#candidatesResults");
       candidatesResults.empty();
 
       var candidatesSelect = $('#candidatesSelect');
       candidatesSelect.empty();
 
-      for (var i = 1; i <= candidatesCount; i++) {
+      for (var i = 1; i <= candidateCount; i++) {
         electionInstance.candidates(i).then(function(candidate) {
           var id = candidate[0];
           var name = candidate[1];
@@ -99,11 +99,13 @@ App = {
           var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
           candidatesResults.append(candidateTemplate);
 
-          // Render candidate ballot option
+          // Render candidate ballot option// coments before in the app.js
           var candidateOption = "<option value='" + id + "' >" + name + "</ option>"
           candidatesSelect.append(candidateOption);
         });
       }
+      //accesing the voter map App.account returns current account and that voter function entierly return true or false
+      //based on the fact if that accout exists in the mapping and has voted that will handled in hasVoted
       return electionInstance.voters(App.account);
     }).then(function(hasVoted) {
       // Do not allow a user to vote

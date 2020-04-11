@@ -56,6 +56,11 @@ App = {
       }).then(function(candidateCount) {
         var candidatesResults = $("#candidatesResults");
         candidatesResults.empty();
+
+        //added mannualy  AM
+        var candidatesSelect = $("#candidatesSelect");//these # are id inside the forms
+        candidatesSelect.empty();
+
   
         for (var i = 1; i <= candidateCount; i++) {
           electionInstance.candidates(i).then(function(candidate) {
@@ -66,8 +71,14 @@ App = {
             // Render candidate Result
             var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
             candidatesResults.append(candidateTemplate);
+
+            //Rander candidate ballot option which was not there before// AM
+            var candidateOption = "<option value='" + id +"' >"+ name +"</option>"
+            candidatesSelect.append(candidateOption);
+
           });
         }
+        return
         
         loader.hide();
         content.show();
