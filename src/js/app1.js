@@ -30,7 +30,7 @@ App = {
   // directory it came with truffle so we need not to do anything 
   initContract: function() {
     $.getJSON("Election.json", function(election) {
-      // Instantiate a new truffle contract from the artifact
+      // Instantiate a new truffle contract from the artifact//
       App.contracts.Election = TruffleContract(election);
       // Connect provider to interact with contract
       App.contracts.Election.setProvider(App.web3Provider);

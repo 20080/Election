@@ -8,7 +8,7 @@ contract("Election", function(accounts){
     it("Init with 2 candidates", function(){
         return Election.deployed().then(function(instance){
             return instance.candidateCount();// there was no s in the candidate count in my election file so i got error 
-        }).then(function(count){             //which costed me almost half of an hour
+        }).then(function(count){             //which costed me almost half of an hour//
             //assert is from chai
             assert.equal(count,2);
         });
