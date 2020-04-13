@@ -104,7 +104,7 @@ App = {
           candidatesSelect.append(candidateOption);
         });
       }
-      //accesing the voter map App.account returns current account and that voter function entierly return true or false
+      //accesing the voter map App.account returns/ current account and that voter function entierly return true or false
       //based on the fact if that accout exists in the mapping and has voted that will handled in hasVoted
       return electionInstance.voters(App.account);
     }).then(function(hasVoted) {
