@@ -15,7 +15,7 @@ struct Candidate{
     );
 
 //Store a candidate
-mapping(address => bool) public voters;// if a voter voted!//bonus voter fun as well//
+mapping(address => bool) public voters;// if a voter voted!//bonus voter fun as well//cls
 //Fetch Candidate
 mapping(uint => Candidate) public candidates;// data layer of block chain.....
 //Store Candidate Count

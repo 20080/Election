@@ -37,7 +37,9 @@ contract("Election", function(accounts){
             candidateId=1;
             return electionInstance.vote(candidateId,{from: accounts[0]});//todo ask accounts//so it is forom
         }).then(function(recipt){                                         //accounts from the top//recipt is the data we by doing
-            return electionInstance.voters(accounts[0]);                  //apps.vote(1,from:web3.eth.getAccounts(e=>e[0])) now passing accout to check if voters mapping contains the voter if yes it will return true
+            //return electionInstance.voters(accounts[0]);                  //apps.vote(1,from:web3.eth.getAccounts(e=>e[0])) now passing accout to check if voters mapping contains the voter if yes it will return true
+            assert.equal(recipt,logs,length, 1,"An event was triggerd");
+            assert.equal(recipt,logs[0],event,)
         }).then(function(voted){
             assert(voted,"Voter marked as voted");
             return electionInstance.candidates(candidateId);
